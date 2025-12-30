@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, Sparkles, Download } from 'lucide-react';
+import { X, Download } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AppBanner() {
@@ -57,9 +57,13 @@ export default function AppBanner() {
     <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#1A1A1A] to-[#333] px-4 py-3 shadow-lg">
       <div className="flex items-center gap-3">
         {/* App Icon */}
-        <div className="w-12 h-12 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-          <Sparkles className="w-6 h-6 text-white" />
-        </div>
+        <Image
+          src="/logo.svg"
+          alt="Eve Beauty Logo"
+          width={48}
+          height={48}
+          className="rounded-xl shadow-md flex-shrink-0"
+        />
         
         {/* Text */}
         <div className="flex-1 min-w-0">

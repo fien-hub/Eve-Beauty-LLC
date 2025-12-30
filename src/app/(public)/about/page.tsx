@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, Sparkles, Target, Users, Heart, Award, TrendingUp } from 'lucide-react'
+import { ArrowLeft, Target, Users, Heart, Award, TrendingUp } from 'lucide-react'
 import Image from 'next/image'
 import { Metadata } from 'next'
 
@@ -24,9 +24,13 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#FEF5F2] to-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg">
-            <Sparkles className="w-10 h-10 text-white" />
-          </div>
+          <Image
+            src="/logo.svg"
+            alt="Eve Beauty Logo"
+            width={80}
+            height={80}
+            className="mx-auto mb-8 rounded-3xl shadow-lg"
+          />
           <h1 className="text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
             Bringing Beauty<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D97A5F] to-[#E89580]">

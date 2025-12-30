@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Star, Shield, Home, CreditCard, Clock, MapPin, Sparkles } from 'lucide-react'
+import { Star, Shield, Home, CreditCard, Clock, MapPin, Sparkles, Smartphone, Download } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -8,24 +8,31 @@ export default function HomePage() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-xl flex items-center justify-center shadow-md">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/logo.svg"
+              alt="Eve Beauty Logo"
+              width={40}
+              height={40}
+              className="rounded-xl shadow-md"
+            />
             <span className="text-2xl font-bold text-[#D97A5F]">Eve Beauty</span>
-          </Link>
+          </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/feed" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Discover</Link>
-            <Link href="/browse" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Browse</Link>
-            <Link href="/login" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Login</Link>
-            <Link href="/signup" className="bg-[#F4B5A4] text-black px-6 py-2.5 rounded-xl font-semibold hover:bg-[#E89580] transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
-              Get Started
-            </Link>
+            <a href="#features" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Features</a>
+            <a href="#services" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Services</a>
+            <a href="#download" className="text-[#6B6B6B] hover:text-[#D97A5F] transition-colors font-medium">Download</a>
+            <a
+              href="#download"
+              className="bg-[#F4B5A4] text-black px-6 py-2.5 rounded-xl font-semibold hover:bg-[#E89580] transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            >
+              Get the App
+            </a>
           </nav>
           {/* Mobile menu button */}
-          <Link href="/signup" className="md:hidden bg-[#F4B5A4] text-black px-4 py-2 rounded-xl font-semibold">
-            Sign Up
-          </Link>
+          <a href="#download" className="md:hidden bg-[#F4B5A4] text-black px-4 py-2 rounded-xl font-semibold">
+            Get App
+          </a>
         </div>
       </header>
 
@@ -36,8 +43,8 @@ export default function HomePage() {
             {/* Text Content */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm mb-6">
-                <Star className="w-4 h-4 text-[#F59E0B] fill-[#F59E0B]" />
-                <span className="text-sm font-medium text-[#6B6B6B]">Trusted by 10,000+ customers</span>
+                <Smartphone className="w-4 h-4 text-[#D97A5F]" />
+                <span className="text-sm font-medium text-[#6B6B6B]">Now available on iOS & Android</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-6 leading-tight">
                 Beauty Services<br />
@@ -47,23 +54,44 @@ export default function HomePage() {
                 Connect with verified beauty professionals who come to you.
                 Nails, hair, makeup, skincare, and more — all from the comfort of your home.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link
-                  href="/browse"
-                  className="group bg-gradient-to-r from-[#F4B5A4] to-[#E89580] text-black px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-lg shadow-[#F4B5A4]/30"
-                >
-                  Book a Service
-                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                </Link>
-                <Link
-                  href="/signup?role=provider"
-                  className="border-2 border-[#F4B5A4] text-[#D97A5F] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[#FEF5F2] transition-all duration-300 hover:-translate-y-1"
-                >
-                  Become a Provider
-                </Link>
+
+              {/* App Download Buttons - Primary CTA */}
+              <div className="mb-8">
+                <p className="text-sm text-[#6B6B6B] mb-4 font-medium">Download the app to get started</p>
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                  <a
+                    href="https://apps.apple.com/app/evebeauty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-black text-white px-6 py-3.5 rounded-xl hover:bg-gray-800 transition-all hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-xs leading-tight opacity-80">Download on the</div>
+                      <div className="text-lg font-semibold leading-tight">App Store</div>
+                    </div>
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.evebeauty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-black text-white px-6 py-3.5 rounded-xl hover:bg-gray-800 transition-all hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-xs leading-tight opacity-80">GET IT ON</div>
+                      <div className="text-lg font-semibold leading-tight">Google Play</div>
+                    </div>
+                  </a>
+                </div>
               </div>
+
               {/* Trust badges */}
-              <div className="flex items-center gap-6 mt-8 justify-center lg:justify-start">
+              <div className="flex items-center gap-6 justify-center lg:justify-start">
                 <div className="flex items-center gap-2 text-sm text-[#6B6B6B]">
                   <Shield className="w-5 h-5 text-[#10B981]" />
                   <span>Verified Pros</span>
@@ -72,39 +100,9 @@ export default function HomePage() {
                   <CreditCard className="w-5 h-5 text-[#3B82F6]" />
                   <span>Secure Pay</span>
                 </div>
-              </div>
-              {/* App Download */}
-              <div className="mt-8">
-                <p className="text-sm text-[#6B6B6B] mb-3 font-medium">Download the app</p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="https://apps.apple.com/app/evebeauty"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all hover:-translate-y-0.5"
-                  >
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                    </svg>
-                    <div className="text-left">
-                      <div className="text-[10px] leading-tight">Download on the</div>
-                      <div className="text-sm font-semibold leading-tight">App Store</div>
-                    </div>
-                  </a>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.evebeauty"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all hover:-translate-y-0.5"
-                  >
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
-                    </svg>
-                    <div className="text-left">
-                      <div className="text-[10px] leading-tight">GET IT ON</div>
-                      <div className="text-sm font-semibold leading-tight">Google Play</div>
-                    </div>
-                  </a>
+                <div className="flex items-center gap-2 text-sm text-[#6B6B6B]">
+                  <Star className="w-5 h-5 text-[#F59E0B] fill-[#F59E0B]" />
+                  <span>4.9 Rating</span>
                 </div>
               </div>
             </div>
@@ -151,14 +149,14 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Floating stats card */}
-              <div className="absolute -left-4 bottom-20 bg-white rounded-2xl shadow-xl p-4 animate-pulse">
+              <div className="absolute -left-4 bottom-20 bg-white rounded-2xl shadow-xl p-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-[#D1FAE5] rounded-full flex items-center justify-center">
-                    <Star className="w-6 h-6 text-[#10B981] fill-[#10B981]" />
+                    <Download className="w-6 h-6 text-[#10B981]" />
                   </div>
                   <div>
-                    <p className="font-bold text-[#1A1A1A]">4.9 Rating</p>
-                    <p className="text-sm text-[#6B6B6B]">2,000+ reviews</p>
+                    <p className="font-bold text-[#1A1A1A]">10,000+</p>
+                    <p className="text-sm text-[#6B6B6B]">App Downloads</p>
                   </div>
                 </div>
               </div>
@@ -168,7 +166,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="features" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block text-[#D97A5F] font-semibold text-sm uppercase tracking-wider mb-4">Why Eve Beauty</span>
@@ -236,7 +234,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#F7F7F7]">
+      <section id="services" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block text-[#D97A5F] font-semibold text-sm uppercase tracking-wider mb-4">Services</span>
@@ -244,7 +242,7 @@ export default function HomePage() {
               Popular Categories
             </h2>
             <p className="text-[#6B6B6B] text-lg max-w-2xl mx-auto">
-              From nails to skincare, find the perfect service for you
+              From nails to skincare, find the perfect service in the app
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -256,10 +254,9 @@ export default function HomePage() {
               { icon: '💆', name: 'Massage', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=300&fit=crop', providers: '40+' },
               { icon: '🌸', name: 'Waxing', image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=300&fit=crop', providers: '35+' },
             ].map((service) => (
-              <Link
+              <div
                 key={service.name}
-                href={`/browse/${service.name.toLowerCase()}`}
-                className="group relative overflow-hidden rounded-3xl aspect-[4/3] hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group relative overflow-hidden rounded-3xl aspect-[4/3] hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
               >
                 <Image
                   src={service.image}
@@ -273,8 +270,19 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-white mb-1">{service.name}</h3>
                   <p className="text-white/80 text-sm">{service.providers} providers</p>
                 </div>
-              </Link>
+              </div>
             ))}
+          </div>
+          {/* CTA to download */}
+          <div className="text-center mt-12">
+            <p className="text-[#6B6B6B] mb-4">Download the app to browse all services and book appointments</p>
+            <a
+              href="#download"
+              className="inline-flex items-center gap-2 bg-[#F4B5A4] text-black px-6 py-3 rounded-xl font-semibold hover:bg-[#E89580] transition-all hover:-translate-y-0.5"
+            >
+              <Download className="w-5 h-5" />
+              Get the App
+            </a>
           </div>
         </div>
       </section>
@@ -316,34 +324,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Download CTA */}
+      <section id="download" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#F4B5A4] via-[#E89580] to-[#D97A5F]" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
         </div>
         <div className="max-w-4xl mx-auto text-center relative">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <Smartphone className="w-4 h-4 text-white" />
+            <span className="text-sm font-medium text-white">Available on iOS & Android</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
-            Ready to Glow Up?
+            Download the App
           </h2>
           <p className="text-xl mb-10 text-white/80 max-w-2xl mx-auto">
-            Join thousands of happy customers and providers on Eve Beauty. Your perfect beauty experience awaits.
+            Get Eve Beauty on your phone for the best experience. Book appointments, chat with providers, and manage everything on the go.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/signup"
-              className="group inline-flex items-center justify-center bg-white text-[#D97A5F] px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#FEF5F2] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            <a
+              href="https://apps.apple.com/app/evebeauty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#FEF5F2] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
             >
-              Get Started Free
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-            <Link
-              href="/browse"
-              className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-all duration-300"
+              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+              </svg>
+              <div className="text-left">
+                <div className="text-xs leading-tight opacity-70">Download on the</div>
+                <div className="text-lg font-semibold leading-tight">App Store</div>
+              </div>
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.evebeauty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#FEF5F2] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
             >
-              Browse Services
-            </Link>
+              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+              </svg>
+              <div className="text-left">
+                <div className="text-xs leading-tight opacity-70">GET IT ON</div>
+                <div className="text-lg font-semibold leading-tight">Google Play</div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -351,16 +378,20 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-[#1A1A1A] text-[#9E9E9E] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-5 gap-8 mb-12">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
+                <Image
+                  src="/logo.svg"
+                  alt="Eve Beauty Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-xl"
+                />
                 <span className="text-2xl font-bold text-[#F4B5A4]">Eve Beauty</span>
               </div>
               <p className="text-sm mb-6 max-w-sm">
-                Beauty services at your doorstep. Connect with verified professionals and book your next appointment in seconds. A service by Eve Beauty LLC.
+                Beauty services at your doorstep. Connect with verified professionals and book your next appointment through our mobile app. A service by Eve Beauty LLC.
               </p>
               <div className="flex gap-4">
                 {['Twitter', 'Instagram', 'Facebook'].map((social) => (
@@ -371,27 +402,11 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <h5 className="text-white font-semibold mb-4">For Customers</h5>
+              <h5 className="text-white font-semibold mb-4">Company</h5>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/browse" className="hover:text-[#F4B5A4] transition-colors">Browse Services</Link></li>
-                <li><Link href="/signup" className="hover:text-[#F4B5A4] transition-colors">Sign Up</Link></li>
-                <li><Link href="/customer/discover" className="hover:text-[#F4B5A4] transition-colors">Discover</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-4">For Providers</h5>
-              <ul className="space-y-3 text-sm">
-                <li><Link href="/signup?role=provider" className="hover:text-[#F4B5A4] transition-colors">Become a Provider</Link></li>
-                <li><Link href="/login" className="hover:text-[#F4B5A4] transition-colors">Provider Login</Link></li>
-                <li><Link href="/provider/dashboard" className="hover:text-[#F4B5A4] transition-colors">Dashboard</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-4">Support</h5>
-              <ul className="space-y-3 text-sm">
-                <li><Link href="/help" className="hover:text-[#F4B5A4] transition-colors">Help Center</Link></li>
-                <li><Link href="/contact" className="hover:text-[#F4B5A4] transition-colors">Contact Us</Link></li>
-                <li><Link href="/privacy" className="hover:text-[#F4B5A4] transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/about" className="hover:text-[#F4B5A4] transition-colors">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-[#F4B5A4] transition-colors">Contact</Link></li>
+                <li><a href="mailto:support@evebeauty.app" className="hover:text-[#F4B5A4] transition-colors">Support</a></li>
               </ul>
             </div>
             <div>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { Star, MapPin, Clock, MessageCircle, Heart, Share2, CheckCircle, ChevronRight, Sparkles, Calendar, Award } from 'lucide-react'
+import { Star, MapPin, Clock, MessageCircle, Heart, Share2, CheckCircle, ChevronRight, Calendar, Award } from 'lucide-react'
 import { getAvatarUrl, getPortfolioImage, PORTFOLIO_PLACEHOLDERS } from '@/lib/images'
 
 interface Props {
@@ -86,9 +86,13 @@ export default async function ProviderProfilePage({ params }: Props) {
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-xl flex items-center justify-center shadow-md">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="Eve Beauty Logo"
+              width={40}
+              height={40}
+              className="rounded-xl shadow-md"
+            />
             <span className="text-2xl font-bold text-[#D97A5F]">Eve Beauty</span>
           </Link>
           <div className="flex items-center gap-3">

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, Bookmark, Share2, CheckCircle, Loader2, Sparkles, TrendingUp, Flame, AlertTriangle, X, ShieldCheck } from 'lucide-react';
+import { Heart, Bookmark, Share2, CheckCircle, Loader2, TrendingUp, Flame, AlertTriangle, X, ShieldCheck, Sparkles } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { getAvatarUrl, PORTFOLIO_PLACEHOLDERS } from '@/lib/images';
 
@@ -93,9 +93,13 @@ export default function ProviderHomePage() {
       <div className="bg-white border-b border-[#E5E5E5] sticky top-0 z-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-lg flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="Eve Beauty Logo"
+              width={32}
+              height={32}
+              className="rounded-lg"
+            />
             <h1 className="text-xl font-bold text-[#1A1A1A]">Eve Beauty Pro</h1>
           </div>
           <div className="flex gap-2 bg-[#F7F7F7] p-1 rounded-xl">

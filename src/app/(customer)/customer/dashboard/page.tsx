@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { createClient } from '@/lib/supabase/server'
-import { Sparkles, Calendar, Heart, Search, Bell, Clock, ChevronRight, Gift } from 'lucide-react'
+import { Calendar, Heart, Search, Bell, Clock, ChevronRight, Gift } from 'lucide-react'
 import { getAvatarUrl } from '@/lib/images'
 
 export default async function CustomerDashboard() {
@@ -56,9 +56,13 @@ export default async function CustomerDashboard() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#F4B5A4] to-[#E89580] rounded-xl flex items-center justify-center shadow-md">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="Eve Beauty Logo"
+              width={40}
+              height={40}
+              className="rounded-xl shadow-md"
+            />
             <span className="text-2xl font-bold text-[#D97A5F]">Eve Beauty</span>
           </Link>
           <div className="flex items-center gap-3">
